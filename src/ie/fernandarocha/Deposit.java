@@ -1,12 +1,12 @@
 package ie.fernandarocha;
 
-public class Deposit {
+public class Deposit extends Transaction{
 	
-	private int accountNumber;
 	private double amount;
 	
 	public Deposit() {}
 	
+	@Override
 	public void execute() {}
 
 }

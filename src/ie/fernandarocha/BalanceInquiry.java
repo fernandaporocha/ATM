@@ -1,9 +1,9 @@
 package ie.fernandarocha;
 
-public class BalanceInquiry {
-	private int accountNumber;
+public class BalanceInquiry extends Transaction{
 	
 	public BalanceInquiry() {}
 	
+	@Override
 	public void execute() {}
 }

@@ -1,8 +1,7 @@
 package ie.fernandarocha;
 
-public class Withdrawal {
+public class Withdrawal extends Transaction{
 	
-	private int accountNumber;
 	private double amount;
 	
 	private Screen screen;
@@ -12,6 +11,7 @@ public class Withdrawal {
 	
 	public Withdrawal() {}
 	
+	@Override
 	public void execute() {}
 
 }
