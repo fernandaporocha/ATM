@@ -6,23 +6,38 @@ public class Account {
 	private double availableBalance;
 	private double totalBalance;
 	
-	public Account() {
-		
+	public Account(int theAccountnumber, int thePIN, double theAvailableBalance, double theTotalBalance) {
+		accountNumber = theAccountnumber;
+		pin = thePIN;
+		availableBalance = theAvailableBalance;
+		totalBalance = theTotalBalance;
 	}
 	
-	public boolean validatePIN() {
-		return false;
+	public boolean validatePIN(int userPIN) {
+		if(userPIN == pin)
+			return true;
+		else
+			return false;
 	}
 	
 	public double getAvailableBalance() {
-		return 0.0;
+		return availableBalance;
 	}
 	
 	public double getTotaBalance() {
-		return 0.0;
+		return totalBalance;
 	}
 	
-	public void credit() {}
+	public void credit(double amount) {
+		totalBalance += amount;
+	}
 	
-	public void debit() {}
+	public void debit(double amount) {
+		availableBalance -= amount;
+		totalBalance -= amount;
+	}
+	
+	public int getAccountNumber() {
+		return accountNumber;
+	}
 }
