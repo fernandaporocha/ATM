@@ -1,9 +1,16 @@
 package ie.fernandarocha;
 
+import java.util.Scanner;
+
 public class Keypad {
 	
-	public Keypad() {}
+	private Scanner input;
 	
-	public void getInput() {}
-
+	public Keypad() {
+		input = new Scanner(System.in);
+	}
+	
+	public int getInput() {
+		return input.nextInt();
+	}
 }

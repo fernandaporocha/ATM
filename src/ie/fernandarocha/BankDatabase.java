@@ -1,23 +1,45 @@
 package ie.fernandarocha;
 
 public class BankDatabase {
+	private Account [] accounts;
 	
-	public BankDatabase() {}
-	
-	public boolean authenticateUser() {
-		return false;
+	public BankDatabase() {
+		accounts = new Account[2];
+		accounts[0] = new Account(12345, 54321, 1000.0, 1200.0);
+		accounts[1] = new Account(98765, 54321, 200.0, 200.0);
 	}
 	
-	public double getAvailableBalance() {
-		return 0.;
+	private Account getAccount(int accountNumber) {
+		for(Account currentAccount: accounts) {
+			if(currentAccount.getAccountNumber() == accountNumber)
+				return currentAccount;
+		}
+		return null;
 	}
 	
-	public double getTotalBalance() {
-		return 0.0;
+	public boolean authenticateUser(int userAccountNumber, int userPIN) {
+		Account userAccount = getAccount(userAccountNumber);
+		
+		if(userAccount != null)
+			return userAccount.validatePIN(userPIN);
+		else
+			return false;
 	}
 	
-	public void credit() {}
+	public double getAvailableBalance(int userAccountNumber) {
+		return getAccount(userAccountNumber).getAvailableBalance();
+	}
 	
-	public void debit() {}
+	public double getTotalBalance(int userAccountNumber) {
+		return getAccount(userAccountNumber).getTotaBalance();
+	}
+	
+	public void credit(int userAccountNumber, double amount) {
+		getAccount(userAccountNumber).credit(amount);
+	}
+	
+	public void debit(int userAccountNumber, double amount) {
+		getAccount(userAccountNumber).debit(amount);
+	}
 
 }

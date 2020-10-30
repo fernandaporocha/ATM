@@ -1,14 +1,24 @@
 package ie.fernandarocha;
 
 public class CashDispenser {
-	private int count = 500;
+	private final static int INITIAL_COUNT = 500;
+	private int count;
 	
-	public CashDispenser() {}
+	public CashDispenser() {
+		count = INITIAL_COUNT;
+	}
 	
-	public void dispenseCash() {}
+	public void dispenseCash(int amount) {
+		int billsRequired = amount/20;
+		count-= billsRequired;
+	}
 	
-	public boolean isSufficientCashAvailable() {
-		return false;
+	public boolean isSufficientCashAvailable(int amount) {
+		int billsRequired = amount/20;
+		if(count >= billsRequired)
+			return true;
+		else
+			return false;
 	}
 	
 }
